@@ -11,6 +11,7 @@ phases:
       - echo "[BUILD] Building Laravel Docker image..."
       - docker build --no-cache -f Dockerfile.deployment -t ${CONTAINER_NAME} .
       - docker tag ${CONTAINER_NAME} ${REPOSITORY_URI}:latest
+      - docker push ${REPOSITORY_URI}:latest   # ←必須！
 
   post_build:
     commands:
@@ -25,6 +26,7 @@ phases:
 
       - echo "[POST_BUILD] Writing imagedefinitions.json for ECS Deploy..."
       - printf '[{"name":"%s","imageUri":"%s:latest"}]' "$CONTAINER_NAME" "$REPOSITORY_URI" > imagedefinitions.json
+
 artifacts:
   files:
     - imagedefinitions.json
