@@ -25,3 +25,5 @@ ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
 
 CMD cd /app && composer config allow-plugins.composer/installers true && composer update && php ./artisan serve --host 0.0.0.0 --port=80
+
+# test
