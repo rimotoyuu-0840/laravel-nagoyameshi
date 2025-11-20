@@ -35,6 +35,9 @@ RUN sed -i 's|/var/www/html|/var/www/html/laravel-nagoyameshi/public|g' /etc/apa
 # パーミッション修正（正しいパスに変更）
 RUN chown -R www-data:www-data storage bootstrap/cache
 
+# cloudwatch設定
+RUN ln -sf /dev/stderr /var/www/html/laravel-nagoyameshi/storage/logs/laravel.log
+
 # ポート公開
 EXPOSE 80
 
