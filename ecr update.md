@@ -9,3 +9,5 @@ docker tag xxxxxxx samurai-kadai:latest
 
 # ECRにDockerイメージをプッシュ(xxxはアプリ名)
 docker push samurai-kadai:latest
+
+# test
